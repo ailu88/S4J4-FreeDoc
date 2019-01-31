@@ -1,1 +1,3 @@
-# S4J4-FreeDoc
+# Bienvenue sur notre super projet Rails
+
+Fait par  @Éloïse Emptoz, @Polo_M, et @MisterAYS
