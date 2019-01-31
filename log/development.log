@@ -1,0 +1,142 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (240.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (74.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateDoctors (20190131140649)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "doctors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "zip_code" varchar, "city_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190131140649_create_doctors.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_doctors_on_city_id" ON "doctors" ("city_id")[0m
+  ↳ db/migrate/20190131140649_create_doctors.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190131140649"]]
+  ↳ bin/rails:9
+  [1m[35m (88.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreatePatients (20190131140726)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "patients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "city_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190131140726_create_patients.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_patients_on_city_id" ON "patients" ("city_id")[0m
+  ↳ db/migrate/20190131140726_create_patients.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190131140726"]]
+  ↳ bin/rails:9
+  [1m[35m (86.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateAppointments (20190131140744)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "appointments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "doctor_id" integer, "patient_id" integer, "city_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190131140744_create_appointments.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_appointments_on_doctor_id" ON "appointments" ("doctor_id")[0m
+  ↳ db/migrate/20190131140744_create_appointments.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_appointments_on_patient_id" ON "appointments" ("patient_id")[0m
+  ↳ db/migrate/20190131140744_create_appointments.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_appointments_on_city_id" ON "appointments" ("city_id")[0m
+  ↳ db/migrate/20190131140744_create_appointments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190131140744"]]
+  ↳ bin/rails:9
+  [1m[35m (90.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateCities (20190131140812)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "cities" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190131140812_create_cities.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190131140812"]]
+  ↳ bin/rails:9
+  [1m[35m (86.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateSpecialties (20190131140845)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "specialties" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190131140845_create_specialties.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190131140845"]]
+  ↳ bin/rails:9
+  [1m[35m (101.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateDoctorSpecialties (20190131140943)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "doctor_specialties" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "doctor_id" integer, "specialty_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190131140943_create_doctor_specialties.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX "index_doctor_specialties_on_doctor_id" ON "doctor_specialties" ("doctor_id")[0m
+  ↳ db/migrate/20190131140943_create_doctor_specialties.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_doctor_specialties_on_specialty_id" ON "doctor_specialties" ("specialty_id")[0m
+  ↳ db/migrate/20190131140943_create_doctor_specialties.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190131140943"]]
+  ↳ bin/rails:9
+  [1m[35m (86.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-01-31 14:37:01.285363"], ["updated_at", "2019-01-31 14:37:01.285363"]]
+  ↳ bin/rails:9
+  [1m[35m (55.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCity Create (17.8ms)[0m  [1m[32mINSERT INTO "cities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Paris"], ["created_at", "2019-01-31 14:48:21.693089"], ["updated_at", "2019-01-31 14:48:21.693089"]]
+  [1m[35m (73.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDoctor Create (45.5ms)[0m  [1m[32mINSERT INTO "doctors" ("city_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["city_id", 1], ["created_at", "2019-01-31 14:49:04.793186"], ["updated_at", "2019-01-31 14:49:04.793186"]]
+  [1m[35m (75.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDoctor Load (0.8ms)[0m  [1m[34mSELECT  "doctors".* FROM "doctors" WHERE "doctors"."city_id" = ? LIMIT ?[0m  [["city_id", 1], ["LIMIT", 11]]
+  [1m[36mDoctor Load (0.4ms)[0m  [1m[34mSELECT  "doctors".* FROM "doctors" WHERE "doctors"."city_id" = ? LIMIT ?[0m  [["city_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDoctor Update (0.8ms)[0m  [1m[33mUPDATE "doctors" SET "first_name" = ?, "updated_at" = ? WHERE "doctors"."id" = ?[0m  [["first_name", "Aleks"], ["updated_at", "2019-01-31 14:51:29.224202"], ["id", 1]]
+  [1m[35m (123.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mDoctor Load (0.6ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDoctor Update (0.8ms)[0m  [1m[33mUPDATE "doctors" SET "last_name" = ?, "updated_at" = ? WHERE "doctors"."id" = ?[0m  [["last_name", "Superstar"], ["updated_at", "2019-01-31 14:56:55.455301"], ["id", 1]]
+  [1m[35m (88.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDoctor Load (0.5ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Create (40.6ms)[0m  [1m[32mINSERT INTO "specialties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "generaliste"], ["created_at", "2019-01-31 14:57:55.282696"], ["updated_at", "2019-01-31 14:57:55.282696"]]
+  [1m[35m (75.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.6ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Create (0.9ms)[0m  [1m[32mINSERT INTO "specialties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "pédiatre"], ["created_at", "2019-01-31 14:58:49.106775"], ["updated_at", "2019-01-31 14:58:49.106775"]]
+  [1m[35m (92.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.5ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mDoctor Load (0.4ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  [1m[36mCity Load (0.6ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCity Create (0.5ms)[0m  [1m[32mINSERT INTO "cities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "lyon"], ["created_at", "2019-01-31 15:01:10.507651"], ["updated_at", "2019-01-31 15:01:10.507651"]]
+  [1m[35m (68.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDoctor Create (0.9ms)[0m  [1m[32mINSERT INTO "doctors" ("first_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "polo"], ["city_id", 2], ["created_at", "2019-01-31 15:02:02.244246"], ["updated_at", "2019-01-31 15:02:02.244246"]]
+  [1m[35m (136.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDoctorSpecialty Create (37.9ms)[0m  [1m[32mINSERT INTO "doctor_specialties" ("doctor_id", "specialty_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["doctor_id", 2], ["specialty_id", 1], ["created_at", "2019-01-31 15:08:53.228481"], ["updated_at", "2019-01-31 15:08:53.228481"]]
+  [1m[35m (87.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.4ms)[0m  [1m[34mSELECT  "specialties".* FROM "specialties" INNER JOIN "doctor_specialties" ON "specialties"."id" = "doctor_specialties"."specialty_id" WHERE "doctor_specialties"."doctor_id" = ? LIMIT ?[0m  [["doctor_id", 2], ["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDoctorSpecialty Create (1.0ms)[0m  [1m[32mINSERT INTO "doctor_specialties" ("doctor_id", "specialty_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["doctor_id", 2], ["specialty_id", 2], ["created_at", "2019-01-31 15:11:59.684618"], ["updated_at", "2019-01-31 15:11:59.684618"]]
+  [1m[35m (97.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.4ms)[0m  [1m[34mSELECT  "specialties".* FROM "specialties" INNER JOIN "doctor_specialties" ON "specialties"."id" = "doctor_specialties"."specialty_id" WHERE "doctor_specialties"."doctor_id" = ? LIMIT ?[0m  [["doctor_id", 2], ["LIMIT", 11]]
+  [1m[36mSpecialty Load (0.7ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" INNER JOIN "doctor_specialties" ON "specialties"."id" = "doctor_specialties"."specialty_id" WHERE "doctor_specialties"."doctor_id" = ?[0m  [["doctor_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAppointment Create (11.5ms)[0m  [1m[32mINSERT INTO "appointments" ("doctor_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["doctor_id", 2], ["city_id", 2], ["created_at", "2019-01-31 15:22:21.206249"], ["updated_at", "2019-01-31 15:22:21.206249"]]
+  [1m[35m (98.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAppointment Create (1.1ms)[0m  [1m[32mINSERT INTO "appointments" ("doctor_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["doctor_id", 2], ["city_id", 2], ["created_at", "2019-01-31 15:25:04.546277"], ["updated_at", "2019-01-31 15:25:04.546277"]]
+  [1m[35m (93.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  [1m[36mPatient Load (1.0ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ? LIMIT ?[0m  [["doctor_id", 2], ["LIMIT", 11]]
